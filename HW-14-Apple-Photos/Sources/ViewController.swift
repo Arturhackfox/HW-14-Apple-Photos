@@ -9,11 +9,31 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // MARK: - Ui
+    
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGreen
+        setupHierarchy()
+        setupLayout()
+    }
+    
+    // MARK: - Setup
+    private func setupHierarchy() {
+        
+    }
+    
+    private func setupLayout() {
+        
     }
 
+    
+    // MARK: - Actions
 
+}
+
+#Preview {
+    ViewController()
 }
 
