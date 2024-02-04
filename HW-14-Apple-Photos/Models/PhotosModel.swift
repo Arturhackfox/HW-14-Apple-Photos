@@ -12,6 +12,7 @@ struct PhotosModel {
     let cellName: String
     let imageCount: String
     var isLocked: Bool = false
+    var isLastInSection = false
 }
 
 extension PhotosModel {
@@ -25,12 +26,12 @@ extension PhotosModel {
             PhotosModel(imageName: "10", cellName: "Loopsie", imageCount: "15"),
             PhotosModel(imageName: "11", cellName: "DJI", imageCount: "23"),
             PhotosModel(imageName: "7", cellName: "Epik", imageCount: "75"),
-            PhotosModel(imageName: "8", cellName: "TikTok", imageCount: "301")
+            PhotosModel(imageName: "8", cellName: "TikTok", imageCount: "301", isLastInSection: true)
         ],
         // MARK: - Section 2
         [
             PhotosModel(imageName: "9", cellName: "People", imageCount: "2175"),
-            PhotosModel(imageName: "12", cellName: "Places", imageCount: "2175"),
+            PhotosModel(imageName: "12", cellName: "Places", imageCount: "2175", isLastInSection: true),
         ],
         // MARK: - Section 3
         [
@@ -42,14 +43,14 @@ extension PhotosModel {
             PhotosModel(imageName: "camera.viewfinder", cellName: "Screenshots", imageCount: "29"),
             PhotosModel(imageName: "record.circle", cellName: "Screen Recordings", imageCount: "654"),
             PhotosModel(imageName: "r.square.on.square", cellName: "RAW", imageCount: "49"),
-            PhotosModel(imageName: "video.circle", cellName: "ProRes", imageCount: "4")
+            PhotosModel(imageName: "video.circle", cellName: "ProRes", imageCount: "4", isLastInSection: true)
         ],
         // MARK: - Section 4
         [
             PhotosModel(imageName: "square.and.arrow.down", cellName: "Imports", imageCount: "169"),
             PhotosModel(imageName: "square.on.square", cellName: "Dublicates", imageCount: "76"),
             PhotosModel(imageName: "eye.slash", cellName: "Hidden", imageCount: "", isLocked: true),
-            PhotosModel(imageName: "trash", cellName: "Recently Deleted", imageCount: "", isLocked: true)
+            PhotosModel(imageName: "trash", cellName: "Recently Deleted", imageCount: "", isLocked: true, isLastInSection: true)
         ]
     ]
 }

@@ -16,10 +16,18 @@ class CustomHeader: UICollectionReusableView {
     
     var headerLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 25, weight: .bold)
+        label.font = .systemFont(ofSize: 20, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
+    }()
+    
+    private lazy var separator: UIView = {
+       let view = UIView()
+        view.backgroundColor = .systemGray6
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        return view
     }()
     
     // MARK: - Inits
@@ -43,12 +51,17 @@ class CustomHeader: UICollectionReusableView {
     
     private func setupHierarchy() {
         addSubview(headerLabel)
+        addSubview(separator)
     }
     
     private func setupLayout() {
         NSLayoutConstraint.activate([
             headerLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-            headerLabel.leadingAnchor.constraint(equalTo: leadingAnchor)
+            headerLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            separator.topAnchor.constraint(equalTo: topAnchor, constant: 12),
+            separator.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 1),
+            separator.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 100),
+            separator.heightAnchor.constraint(equalToConstant: 1)
         ])
     }
 }

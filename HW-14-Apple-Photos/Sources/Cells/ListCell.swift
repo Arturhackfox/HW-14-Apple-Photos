@@ -109,9 +109,18 @@ class ListCell: UICollectionViewListCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        image.image = nil
+        lockedImage.image = nil
+        albumTitle.text = nil
+        separator.isHidden = false
+        
     }
     
     func configure(with model: PhotosModel) {
+        if model.isLastInSection {
+            separator.isHidden = true
+        }
+        
         switch model.isLocked {
         case true:
             image.image = UIImage(systemName: model.imageName)
