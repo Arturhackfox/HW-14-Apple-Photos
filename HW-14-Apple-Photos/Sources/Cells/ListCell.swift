@@ -20,6 +20,14 @@ class ListCell: UICollectionViewListCell {
         return image
     }()
     
+    private lazy var separator: UIView = {
+       let view = UIView()
+        view.backgroundColor = .systemGray6
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        return view
+    }()
+    
     
     private lazy var albumTitle: UILabel = {
         let label = UILabel()
@@ -58,7 +66,7 @@ class ListCell: UICollectionViewListCell {
         super.init(frame: frame)
         setupHierarchy()
         setupLayout()
-    }
+}
     
     required init?(coder: NSCoder) {
         fatalError()
@@ -71,6 +79,7 @@ class ListCell: UICollectionViewListCell {
         addSubview(albumTitle)
         addSubview(albumCountLabel)
         addSubview(lockedImage)
+        addSubview(separator)
     }
     
     private func setupLayout() {
@@ -89,7 +98,12 @@ class ListCell: UICollectionViewListCell {
             lockedImage.centerYAnchor.constraint(equalTo: centerYAnchor),
             lockedImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
             lockedImage.widthAnchor.constraint(equalToConstant: 15),
-            lockedImage.heightAnchor.constraint(equalToConstant: 15)
+            lockedImage.heightAnchor.constraint(equalToConstant: 15),
+            
+            separator.bottomAnchor.constraint(equalTo: bottomAnchor),
+            separator.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 45),
+            separator.trailingAnchor.constraint(equalTo: trailingAnchor,constant: 5),
+            separator.heightAnchor.constraint(equalToConstant: 1)
         ])
     }
     

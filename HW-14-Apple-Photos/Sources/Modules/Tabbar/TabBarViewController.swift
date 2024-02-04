@@ -15,7 +15,7 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
         setupTabBar()
         setupTabBarViewController()
-        selectedIndex = 2
+        selectStartViewController()
     }
     
     // MARK: - Setup
@@ -44,8 +44,12 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         fourthViewController.tabBarItem = fourthItem
         
         let allViewControllers = [firstViewController, secondViewController, navigationThirdViewController, fourthViewController]
-        
+
         self.setViewControllers(allViewControllers, animated: true)
+    }
+    
+    private func selectStartViewController() {
+        selectedIndex = 2
     }
     
     

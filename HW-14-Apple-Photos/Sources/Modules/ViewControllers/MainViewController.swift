@@ -100,7 +100,7 @@ class MainViewController: UIViewController {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
                                                       heightDimension: .fractionalHeight(1))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+                item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)
                 
                 let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
                                                        heightDimension: .estimated(50))
@@ -118,8 +118,7 @@ class MainViewController: UIViewController {
                     alignment: .top)
                 
                 section.boundarySupplementaryItems = [header]
-                
-                
+                                
                 return section
             default:
                 // Section -> Group -> item -> size
@@ -200,6 +199,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListCell.identifier, for: indexPath) as? ListCell
             cell?.configure(with: currentModel)
             cell?.accessories = [.disclosureIndicator()]
+            
             
             return cell ?? UICollectionViewCell()
         default:
