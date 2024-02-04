@@ -9,6 +9,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // MARK: - Data
+    private let data = PhotosModel.photos
+    
     // MARK: - Ui
     
     private lazy var collectionView: UICollectionView = {
@@ -17,6 +20,7 @@ class ViewController: UIViewController {
         collection.dataSource = self
         collection.delegate = self
         collection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collection.register(TopSectionCell.self, forCellWithReuseIdentifier: TopSectionCell.identifier)
         
         collection.translatesAutoresizingMaskIntoConstraints = false
         return collection
@@ -43,7 +47,7 @@ class ViewController: UIViewController {
                 item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 35, trailing: 5)
                 
                 let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/2.2),
-                                                       heightDimension: .estimated(190))
+                                                       heightDimension: .estimated(210))
                 
                 let topFourGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, repeatingSubitem: item, count: 2)
                 
@@ -142,18 +146,29 @@ class ViewController: UIViewController {
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        4
+        PhotosModel.photos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        9
+        PhotosModel.photos[section].count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .systemBlue
+        let currentModel = data[indexPath.section][indexPath.row]
         
-        return cell
+        switch indexPath.section {
+        case 0:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopSectionCell.identifier, for: indexPath) as? TopSectionCell
+            cell?.configure(with: currentModel)
+            
+
+            return cell ?? UICollectionViewCell()
+        default:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+            cell.backgroundColor = .systemBlue
+            
+            return cell
+        }
     }
 }
 
