@@ -19,6 +19,7 @@
 		32D4A6442B6FA0A9002C5FC5 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4A6432B6FA0A9002C5FC5 /* SecondViewController.swift */; };
 		32D4A6462B6FA0B5002C5FC5 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4A6452B6FA0B5002C5FC5 /* ThirdViewController.swift */; };
 		32D4A6482B6FA120002C5FC5 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4A6472B6FA120002C5FC5 /* TabBarViewController.swift */; };
+		32D4A64B2B6FA677002C5FC5 /* HeaderCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4A64A2B6FA677002C5FC5 /* HeaderCustom.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		32D4A6432B6FA0A9002C5FC5 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		32D4A6452B6FA0B5002C5FC5 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		32D4A6472B6FA120002C5FC5 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		32D4A64A2B6FA677002C5FC5 /* HeaderCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCustom.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 			children = (
 				32D4A6302B6D7090002C5FC5 /* App */,
 				32D4A6312B6D7096002C5FC5 /* Sources */,
+				32D4A6492B6FA662002C5FC5 /* Headers */,
 				32D4A63A2B6F739F002C5FC5 /* Models */,
 				32D4A6322B6D709C002C5FC5 /* Resources */,
 			);
@@ -107,11 +110,8 @@
 		32D4A6382B6F7101002C5FC5 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				32D4A6472B6FA120002C5FC5 /* TabBarViewController.swift */,
-				32D4A6202B6D7058002C5FC5 /* MainViewController.swift */,
-				32D4A6412B6FA07B002C5FC5 /* FirstViewController.swift */,
-				32D4A6432B6FA0A9002C5FC5 /* SecondViewController.swift */,
-				32D4A6452B6FA0B5002C5FC5 /* ThirdViewController.swift */,
+				32D4A64C2B6FA747002C5FC5 /* Tabbar */,
+				32D4A64D2B6FA75B002C5FC5 /* ViewControllers */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -131,6 +131,33 @@
 				32D4A63B2B6F7FAF002C5FC5 /* PhotosModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		32D4A6492B6FA662002C5FC5 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				32D4A64A2B6FA677002C5FC5 /* HeaderCustom.swift */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		32D4A64C2B6FA747002C5FC5 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				32D4A6472B6FA120002C5FC5 /* TabBarViewController.swift */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		32D4A64D2B6FA75B002C5FC5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				32D4A6202B6D7058002C5FC5 /* MainViewController.swift */,
+				32D4A6412B6FA07B002C5FC5 /* FirstViewController.swift */,
+				32D4A6432B6FA0A9002C5FC5 /* SecondViewController.swift */,
+				32D4A6452B6FA0B5002C5FC5 /* ThirdViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +235,7 @@
 				32D4A6212B6D7058002C5FC5 /* MainViewController.swift in Sources */,
 				32D4A61D2B6D7058002C5FC5 /* AppDelegate.swift in Sources */,
 				32D4A63E2B6F8949002C5FC5 /* TopSectionCell.swift in Sources */,
+				32D4A64B2B6FA677002C5FC5 /* HeaderCustom.swift in Sources */,
 				32D4A6402B6F9418002C5FC5 /* ListCell.swift in Sources */,
 				32D4A63C2B6F7FAF002C5FC5 /* PhotosModel.swift in Sources */,
 				32D4A61F2B6D7058002C5FC5 /* SceneDelegate.swift in Sources */,

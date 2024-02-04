@@ -15,6 +15,7 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
         setupTabBar()
         setupTabBarViewController()
+        selectedIndex = 2
     }
     
     // MARK: - Setup
@@ -43,6 +44,7 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         fourthViewController.tabBarItem = fourthItem
         
         let allViewControllers = [firstViewController, secondViewController, navigationThirdViewController, fourthViewController]
+        
         self.setViewControllers(allViewControllers, animated: true)
     }
     

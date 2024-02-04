@@ -22,6 +22,7 @@ class MainViewController: UIViewController {
         collection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         collection.register(TopSectionCell.self, forCellWithReuseIdentifier: TopSectionCell.identifier)
         collection.register(ListCell.self, forCellWithReuseIdentifier: ListCell.identifier)
+        collection.register(CustomHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CustomHeader.identifier)
         
         collection.translatesAutoresizingMaskIntoConstraints = false
         return collection
@@ -56,6 +57,14 @@ class MainViewController: UIViewController {
                 section.orthogonalScrollingBehavior = .paging
                 section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 0)
                 
+                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.97),
+                                                        heightDimension: .estimated(50))
+                let header = NSCollectionLayoutBoundarySupplementaryItem(
+                    layoutSize: headerSize,
+                    elementKind: UICollectionView.elementKindSectionHeader,
+                    alignment: .top)
+                
+                section.boundarySupplementaryItems = [header]
                 
                 return section
                 
@@ -73,8 +82,16 @@ class MainViewController: UIViewController {
                 
                 let section = NSCollectionLayoutSection(group: topFourGroup)
                 section.orthogonalScrollingBehavior = .continuous
-                section.contentInsets = NSDirectionalEdgeInsets(top: 35, leading: 15, bottom: 0, trailing: 0)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 15, bottom: 0, trailing: 0)
                 
+                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.97),
+                                                        heightDimension: .estimated(50))
+                let header = NSCollectionLayoutBoundarySupplementaryItem(
+                    layoutSize: headerSize,
+                    elementKind: UICollectionView.elementKindSectionHeader,
+                    alignment: .top)
+                
+                section.boundarySupplementaryItems = [header]
                 
                 return section
                 
@@ -92,8 +109,15 @@ class MainViewController: UIViewController {
                 
                 let section = NSCollectionLayoutSection(group: topFourGroup)
                 section.orthogonalScrollingBehavior = .continuous
-                section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 30, trailing: 0)
 
+                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.90),
+                                                        heightDimension: .estimated(50))
+                let header = NSCollectionLayoutBoundarySupplementaryItem(
+                    layoutSize: headerSize,
+                    elementKind: UICollectionView.elementKindSectionHeader,
+                    alignment: .top)
+                
+                section.boundarySupplementaryItems = [header]
                 
                 
                 return section
@@ -112,6 +136,14 @@ class MainViewController: UIViewController {
                 let section = NSCollectionLayoutSection(group: topFourGroup)
                 section.orthogonalScrollingBehavior = .continuous
                 
+                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.90),
+                                                        heightDimension: .estimated(50))
+                let header = NSCollectionLayoutBoundarySupplementaryItem(
+                    layoutSize: headerSize,
+                    elementKind: UICollectionView.elementKindSectionHeader,
+                    alignment: .top)
+                
+                section.boundarySupplementaryItems = [header]
                 
                 return section
             }
@@ -182,6 +214,33 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+    }
+    
+    // MARK: - Header
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch indexPath.section {
+        case 0:
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CustomHeader.identifier, for: indexPath) as! CustomHeader
+            header.headerLabel.text = "My Albums"
+            
+            return header 
+        case 1:
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CustomHeader.identifier, for: indexPath) as! CustomHeader
+            header.headerLabel.text = "People & Places"
+            
+            return header
+        case 2:
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CustomHeader.identifier, for: indexPath) as! CustomHeader
+            header.headerLabel.text = "Media Types"
+            
+            return header
+        default:
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CustomHeader.identifier, for: indexPath) as! CustomHeader
+            header.headerLabel.text = "Utilities"
+            
+            return header
+        }
     }
 }
 
