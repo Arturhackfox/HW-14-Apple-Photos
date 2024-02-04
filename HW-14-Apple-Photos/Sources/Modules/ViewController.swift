@@ -37,41 +37,41 @@ class ViewController: UIViewController {
             switch sectionIndex {
             case 0:
                 // Section -> Group -> item -> size
-                  let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                        heightDimension: .fractionalHeight(1))
-                  let item = NSCollectionLayoutItem(layoutSize: itemSize)
-              item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 35, trailing: 5)
-                  
-              let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/2.2),
-                                                     heightDimension: .estimated(190))
-              
-              let topFourGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, repeatingSubitem: item, count: 2)
-              
-              let section = NSCollectionLayoutSection(group: topFourGroup)
-              section.orthogonalScrollingBehavior = .paging
-              section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 0)
-
-              
-              return section
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                      heightDimension: .fractionalHeight(1))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 35, trailing: 5)
+                
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/2.2),
+                                                       heightDimension: .estimated(190))
+                
+                let topFourGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, repeatingSubitem: item, count: 2)
+                
+                let section = NSCollectionLayoutSection(group: topFourGroup)
+                section.orthogonalScrollingBehavior = .paging
+                section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 0)
+                
+                
+                return section
                 
             default:
                 // Section -> Group -> item -> size
-                  let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                        heightDimension: .fractionalHeight(1))
-                  let item = NSCollectionLayoutItem(layoutSize: itemSize)
-              item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 35, trailing: 5)
-                  
-              let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/2.2),
-                                                     heightDimension: .estimated(190))
-              
-              let topFourGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, repeatingSubitem: item, count: 1)
-              
-              let section = NSCollectionLayoutSection(group: topFourGroup)
-              section.orthogonalScrollingBehavior = .continuous
-              section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 0)
-
-              
-              return section
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                      heightDimension: .fractionalHeight(1))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 35, trailing: 5)
+                
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/2.2),
+                                                       heightDimension: .estimated(190))
+                
+                let topFourGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, repeatingSubitem: item, count: 1)
+                
+                let section = NSCollectionLayoutSection(group: topFourGroup)
+                section.orthogonalScrollingBehavior = .continuous
+                section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 0)
+                
+                
+                return section
             }
             
         }
@@ -81,7 +81,7 @@ class ViewController: UIViewController {
         view.backgroundColor = .systemGreen
         title = "Albums"
         navigationController?.navigationBar.prefersLargeTitles = true
-
+        
     }
     
     private func setupHierarchy() {
@@ -118,7 +118,6 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         
         return cell
     }
-    
 }
 
 #Preview {
