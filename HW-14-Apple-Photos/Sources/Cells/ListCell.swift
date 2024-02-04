@@ -16,10 +16,10 @@ class ListCell: UICollectionViewListCell {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
-  
+        
         return image
     }()
-
+    
     
     private lazy var albumTitle: UILabel = {
         let label = UILabel()
@@ -42,6 +42,15 @@ class ListCell: UICollectionViewListCell {
         return label
     }()
     
+    private lazy var lockedImage: UIImageView = {
+        let image = UIImageView(image: UIImage(systemName: "lock.fill"))
+        image.tintColor = .systemGray
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFit
+        
+        return image
+    }()
+    
     
     // MARK: - Inits
     
@@ -61,6 +70,7 @@ class ListCell: UICollectionViewListCell {
         addSubview(image)
         addSubview(albumTitle)
         addSubview(albumCountLabel)
+        addSubview(lockedImage)
     }
     
     private func setupLayout() {
@@ -74,7 +84,12 @@ class ListCell: UICollectionViewListCell {
             albumTitle.leadingAnchor.constraint(equalTo: image.leadingAnchor, constant: 35),
             
             albumCountLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            albumCountLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30)
+            albumCountLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
+            
+            lockedImage.centerYAnchor.constraint(equalTo: centerYAnchor),
+            lockedImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
+            lockedImage.widthAnchor.constraint(equalToConstant: 15),
+            lockedImage.heightAnchor.constraint(equalToConstant: 15)
         ])
     }
     
@@ -83,9 +98,18 @@ class ListCell: UICollectionViewListCell {
     }
     
     func configure(with model: PhotosModel) {
-        image.image = UIImage(systemName: model.imageName)
+        switch model.isLocked {
+        case true:
+            image.image = UIImage(systemName: model.imageName)
             albumTitle.text = model.cellName
             albumCountLabel.text = model.imageCount
+        case false:
+            image.image = UIImage(systemName: model.imageName)
+            albumTitle.text = model.cellName
+            albumCountLabel.text = model.imageCount
+            lockedImage.isHidden = true
+        }
+        
     }
     
 }

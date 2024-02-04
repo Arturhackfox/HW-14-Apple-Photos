@@ -11,7 +11,7 @@ struct PhotosModel {
     let imageName: String
     let cellName: String
     let imageCount: String
-    let isLocked: Bool = false
+    var isLocked: Bool = false
 }
 
 extension PhotosModel {
@@ -48,8 +48,8 @@ extension PhotosModel {
         [
             PhotosModel(imageName: "square.and.arrow.down", cellName: "Imports", imageCount: "169"),
             PhotosModel(imageName: "square.on.square", cellName: "Dublicates", imageCount: "76"),
-            PhotosModel(imageName: "eye.slash", cellName: "Hidden", imageCount: ""),
-            PhotosModel(imageName: "trash", cellName: "Recently Deleted", imageCount: "")
+            PhotosModel(imageName: "eye.slash", cellName: "Hidden", imageCount: "", isLocked: true),
+            PhotosModel(imageName: "trash", cellName: "Recently Deleted", imageCount: "", isLocked: true)
         ]
     ]
 }

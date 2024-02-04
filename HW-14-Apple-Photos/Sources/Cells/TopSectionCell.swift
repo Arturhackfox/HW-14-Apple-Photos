@@ -36,8 +36,8 @@ class TopSectionCell: UICollectionViewCell {
     
     private lazy var albumTitle: UILabel = {
         let label = UILabel()
-        label.textColor = .black
-        label.font = .systemFont(ofSize: 14, weight: .light)
+        label.textColor = UIColor(named: "WhiteOnDark")
+        label.font = .systemFont(ofSize: 14, weight: .regular)
         
         label.translatesAutoresizingMaskIntoConstraints = false
         
