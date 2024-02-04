@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         collection.delegate = self
         collection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         collection.register(TopSectionCell.self, forCellWithReuseIdentifier: TopSectionCell.identifier)
+        collection.register(ListCell.self, forCellWithReuseIdentifier: ListCell.identifier)
         
         collection.translatesAutoresizingMaskIntoConstraints = false
         return collection
@@ -66,13 +67,13 @@ class ViewController: UIViewController {
                 item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 35, trailing: 5)
                 
                 let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/2.2),
-                                                       heightDimension: .estimated(190))
+                                                       heightDimension: .estimated(210))
                 
                 let topFourGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, repeatingSubitem: item, count: 1)
                 
                 let section = NSCollectionLayoutSection(group: topFourGroup)
                 section.orthogonalScrollingBehavior = .continuous
-                section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 0)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 35, leading: 15, bottom: 0, trailing: 0)
                 
                 
                 return section
@@ -157,11 +158,17 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         let currentModel = data[indexPath.section][indexPath.row]
         
         switch indexPath.section {
-        case 0:
+        case 0, 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopSectionCell.identifier, for: indexPath) as? TopSectionCell
             cell?.configure(with: currentModel)
             
 
+            return cell ?? UICollectionViewCell()
+        case 2, 3:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListCell.identifier, for: indexPath) as? ListCell
+            cell?.configure(with: currentModel)
+            cell?.accessories = [.disclosureIndicator()]
+            
             return cell ?? UICollectionViewCell()
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
@@ -169,6 +176,12 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
             
             return cell
         }
+    }
+    
+    // MARK: - Deselect row on tap
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
     }
 }
 

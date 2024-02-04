@@ -11,7 +11,7 @@ struct PhotosModel {
     let imageName: String
     let cellName: String
     let imageCount: String
-    let isHidden: Bool = false
+    let isLocked: Bool = false
 }
 
 extension PhotosModel {

@@ -18,15 +18,9 @@ class TopSectionCell: UICollectionViewCell {
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
         
-        image.layer.cornerRadius = 3
+        image.layer.cornerRadius = 4
         image.layer.masksToBounds = true
-        
-        image.layer.shadowColor = UIColor.white.cgColor
-        image.layer.shadowOpacity = 0.3
-        image.layer.shadowOffset = .zero
-        image.layer.shadowRadius = 10
-        image.layer.shouldRasterize = true
-        image.layer.rasterizationScale = UIScreen.main.scale
+
         
         return image
     }()
@@ -54,7 +48,7 @@ class TopSectionCell: UICollectionViewCell {
         let label = UILabel()
         label.textColor = .black
         label.font = .systemFont(ofSize: 14, weight: .light)
-        label.textColor = .gray
+        label.textColor = .systemGray
         
         label.translatesAutoresizingMaskIntoConstraints = false
         
