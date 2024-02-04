@@ -115,5 +115,5 @@ class ListCell: UICollectionViewListCell {
 }
 
 #Preview {
-    ViewController()
+    MainViewController()
 }

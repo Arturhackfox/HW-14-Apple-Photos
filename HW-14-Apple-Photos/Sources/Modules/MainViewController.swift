@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     
     // MARK: - Data
     private let data = PhotosModel.photos
@@ -144,7 +144,7 @@ class ViewController: UIViewController {
     
 }
 
-extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         PhotosModel.photos.count
@@ -186,6 +186,6 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 }
 
 #Preview {
-    ViewController()
+    MainViewController()
 }
 

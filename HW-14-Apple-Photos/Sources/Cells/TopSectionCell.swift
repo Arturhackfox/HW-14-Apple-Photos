@@ -118,6 +118,6 @@ class TopSectionCell: UICollectionViewCell {
 }
 
 #Preview {
-    ViewController()
+    MainViewController()
 }
 
