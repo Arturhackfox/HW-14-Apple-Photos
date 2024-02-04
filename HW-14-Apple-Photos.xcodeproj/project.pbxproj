@@ -56,7 +56,6 @@
 			children = (
 				32D4A6302B6D7090002C5FC5 /* App */,
 				32D4A6312B6D7096002C5FC5 /* Sources */,
-				32D4A6392B6F71A9002C5FC5 /* Cells */,
 				32D4A63A2B6F739F002C5FC5 /* Models */,
 				32D4A6322B6D709C002C5FC5 /* Resources */,
 			);
@@ -76,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				32D4A6382B6F7101002C5FC5 /* Modules */,
+				32D4A6392B6F71A9002C5FC5 /* Cells */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
