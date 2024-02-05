@@ -135,10 +135,6 @@ class MainViewController: UIViewController {
             collectionView.leftAnchor.constraint(equalTo: view.leftAnchor)
         ])
     }
-    
-    
-    // MARK: - Actions
-    
 }
 
 extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate {
