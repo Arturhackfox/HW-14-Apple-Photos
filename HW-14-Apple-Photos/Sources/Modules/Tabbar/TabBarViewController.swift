@@ -26,24 +26,24 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     }
     
     private func setupTabBarViewController() {
-        let firstViewController = FirstViewController()
+        let libraryViewController = FirstViewController()
         let firstItem = UITabBarItem(title: "Library", image: UIImage(systemName: "photo.on.rectangle.fill"), tag: 1)
-        firstViewController.tabBarItem = firstItem
+        libraryViewController.tabBarItem = firstItem
         
-        let secondViewController = SecondViewController()
+        let forYouViewController = SecondViewController()
         let secondItem = UITabBarItem(title: "For You", image: UIImage(systemName: "heart.text.square.fill"), tag: 2)
-        secondViewController.tabBarItem = secondItem
+        forYouViewController.tabBarItem = secondItem
         
-        let thirdViewController = MainViewController()
+        let albumsViewController = MainViewController()
         let thirdItem = UITabBarItem(title: "Albums", image: UIImage(systemName: "rectangle.stack.fill"), tag: 3)
-        thirdViewController.tabBarItem = thirdItem
-        let navigationThirdViewController = UINavigationController(rootViewController: thirdViewController)
+        albumsViewController.tabBarItem = thirdItem
+        let navigationAlbumsViewController = UINavigationController(rootViewController: albumsViewController)
         
-        let fourthViewController = ThirdViewController()
+        let searchViewController = ThirdViewController()
         let fourthItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), tag: 1)
-        fourthViewController.tabBarItem = fourthItem
+        searchViewController.tabBarItem = fourthItem
         
-        let allViewControllers = [firstViewController, secondViewController, navigationThirdViewController, fourthViewController]
+        let allViewControllers = [libraryViewController, forYouViewController, navigationAlbumsViewController, searchViewController]
 
         self.setViewControllers(allViewControllers, animated: true)
     }
@@ -51,6 +51,4 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     private func selectStartViewController() {
         selectedIndex = 2
     }
-    
-    
 }
