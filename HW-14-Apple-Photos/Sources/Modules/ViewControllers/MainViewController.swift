@@ -109,7 +109,7 @@ class MainViewController: UIViewController {
                 
                 let section = NSCollectionLayoutSection(group: topFourGroup)
                 section.orthogonalScrollingBehavior = .continuous
-
+                
                 let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.90),
                                                         heightDimension: .estimated(50))
                 let header = NSCollectionLayoutBoundarySupplementaryItem(
@@ -118,7 +118,7 @@ class MainViewController: UIViewController {
                     alignment: .top)
                 
                 section.boundarySupplementaryItems = [header]
-                                
+                
                 return section
             default:
                 // Section -> Group -> item -> size
@@ -169,10 +169,6 @@ class MainViewController: UIViewController {
             collectionView.leftAnchor.constraint(equalTo: view.leftAnchor)
         ])
     }
-    
-    
-    // MARK: - Actions
-    
 }
 
 extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate {
