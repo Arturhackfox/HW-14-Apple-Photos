@@ -93,17 +93,18 @@ class ListCell: UICollectionViewListCell {
             albumTitle.leadingAnchor.constraint(equalTo: image.leadingAnchor, constant: 35),
             
             albumCountLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            albumCountLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
+            albumCountLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -35),
             
             lockedImage.centerYAnchor.constraint(equalTo: centerYAnchor),
             lockedImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
             lockedImage.widthAnchor.constraint(equalToConstant: 15),
             lockedImage.heightAnchor.constraint(equalToConstant: 15),
-            
-            separator.bottomAnchor.constraint(equalTo: bottomAnchor),
-            separator.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 45),
-            separator.trailingAnchor.constraint(equalTo: trailingAnchor,constant: 5),
-            separator.heightAnchor.constraint(equalToConstant: 1)
+
+
+//            separator.bottomAnchor.constraint(equalTo: bottomAnchor),
+//            separator.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 45),
+//            separator.trailingAnchor.constraint(equalTo: trailingAnchor,constant: 5),
+//            separator.heightAnchor.constraint(equalToConstant: 1)
         ])
     }
     

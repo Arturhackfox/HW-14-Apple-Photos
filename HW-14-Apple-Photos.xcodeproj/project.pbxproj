@@ -72,7 +72,6 @@
 			children = (
 				32D4A6302B6D7090002C5FC5 /* App */,
 				32D4A6312B6D7096002C5FC5 /* Sources */,
-				32D4A6492B6FA662002C5FC5 /* Headers */,
 				32D4A63A2B6F739F002C5FC5 /* Models */,
 				32D4A6322B6D709C002C5FC5 /* Resources */,
 			);
@@ -121,6 +120,7 @@
 			children = (
 				32D4A63D2B6F8949002C5FC5 /* TopSectionCell.swift */,
 				32D4A63F2B6F9418002C5FC5 /* ListCell.swift */,
+				32D4A64A2B6FA677002C5FC5 /* HeaderCustom.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -131,14 +131,6 @@
 				32D4A63B2B6F7FAF002C5FC5 /* PhotosModel.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		32D4A6492B6FA662002C5FC5 /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				32D4A64A2B6FA677002C5FC5 /* HeaderCustom.swift */,
-			);
-			path = Headers;
 			sourceTree = "<group>";
 		};
 		32D4A64C2B6FA747002C5FC5 /* Tabbar */ = {

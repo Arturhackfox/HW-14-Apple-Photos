@@ -39,7 +39,7 @@ class MainViewController: UIViewController {
     // MARK: - Setup
     
     private func createLayout() -> UICollectionViewCompositionalLayout {
-        return UICollectionViewCompositionalLayout { sectionIndex, _ in
+        return UICollectionViewCompositionalLayout { sectionIndex, layoutEnvironment in
             switch sectionIndex {
             case 0:
                 // Section -> Group -> item -> size
@@ -95,20 +95,12 @@ class MainViewController: UIViewController {
                 
                 return section
                 
-            case 2:
+            default:
+                // MARK: - List cell
                 // Section -> Group -> item -> size
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                      heightDimension: .fractionalHeight(1))
-                let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)
                 
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                       heightDimension: .estimated(50))
-                
-                let topFourGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, repeatingSubitem: item, count: 9)
-                
-                let section = NSCollectionLayoutSection(group: topFourGroup)
-                section.orthogonalScrollingBehavior = .continuous
+                let config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+                let section = NSCollectionLayoutSection.list(using: config, layoutEnvironment: layoutEnvironment)
 
                 let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.90),
                                                         heightDimension: .estimated(50))
@@ -120,33 +112,7 @@ class MainViewController: UIViewController {
                 section.boundarySupplementaryItems = [header]
                                 
                 return section
-            default:
-                // Section -> Group -> item -> size
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                      heightDimension: .fractionalHeight(1))
-                let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
-                
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                       heightDimension: .estimated(50))
-                
-                let topFourGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, repeatingSubitem: item, count: 4)
-                
-                let section = NSCollectionLayoutSection(group: topFourGroup)
-                section.orthogonalScrollingBehavior = .continuous
-                
-                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.90),
-                                                        heightDimension: .estimated(50))
-                let header = NSCollectionLayoutBoundarySupplementaryItem(
-                    layoutSize: headerSize,
-                    elementKind: UICollectionView.elementKindSectionHeader,
-                    alignment: .top)
-                
-                section.boundarySupplementaryItems = [header]
-                
-                return section
             }
-            
         }
     }
     
